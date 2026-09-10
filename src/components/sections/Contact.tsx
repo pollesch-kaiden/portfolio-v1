@@ -68,7 +68,8 @@ export default function Contact({ onResumeClick }: ContactProps) {
           Contact
         </h2>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
+        <div className="grid md:grid-cols-2 gap-8 mb-8 opacity-50 pointer-events-none">
+          {/* Disabled Contact Form */}
           <Card className="bg-card">
             <CardHeader>
               <CardTitle>Get In Touch</CardTitle>
@@ -82,7 +83,7 @@ export default function Contact({ onResumeClick }: ContactProps) {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    required
+                      disabled
                   />
                 </div>
                 <div>
@@ -93,7 +94,7 @@ export default function Contact({ onResumeClick }: ContactProps) {
                     type="email"
                     value={formData.email}
                     onChange={handleChange}
-                    required
+                    disabled
                   />
                 </div>
                 <div>
@@ -103,7 +104,7 @@ export default function Contact({ onResumeClick }: ContactProps) {
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
-                    required
+                    disabled
                   />
                 </div>
                 <div>
@@ -114,16 +115,17 @@ export default function Contact({ onResumeClick }: ContactProps) {
                     rows={4}
                     value={formData.message}
                     onChange={handleChange}
-                    required
+                    disabled
                   />
                 </div>
-                <Button type="submit" className="w-full">
+                <Button type="submit" className="w-full" disabled>
                   Send Message
                 </Button>
               </form>
             </CardContent>
           </Card>
 
+          {/* Contact Information + Resume */}
           <div className="space-y-6">
             <Card className="bg-card">
               <CardHeader>
@@ -132,7 +134,6 @@ export default function Contact({ onResumeClick }: ContactProps) {
               <CardContent className="space-y-4">
                 <div className="flex items-center space-x-3">
                   <Mail className="h-5 w-5 text-primary" />
-                  <span>kpollesch123@gmail.com</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Phone className="h-5 w-5 text-primary" />
@@ -154,7 +155,7 @@ export default function Contact({ onResumeClick }: ContactProps) {
                   Download my resume to learn more about my experience and
                   qualifications.
                 </p>
-                <Button onClick={onResumeClick} className="w-full">
+                <Button onClick={onResumeClick} className="w-full" disabled>
                   <Download className="h-4 w-4 mr-2" />
                   View & Download Resume
                 </Button>
@@ -163,6 +164,32 @@ export default function Contact({ onResumeClick }: ContactProps) {
           </div>
         </div>
 
+        {/* Deprecated Site Notice */}
+        <Card className="bg-card mb-8 border-yellow-500/30">
+          <CardContent className="py-5">
+            <div className="text-center">
+              <p className="font-semibold text-foreground mb-1">
+                This site is deprecated
+              </p>
+
+              <p className="text-sm text-muted-foreground">
+                This contact form is no longer active. This is the first version
+                of this website and is no longer maintained. Please visit{" "}
+                <a
+                    href="https://kaidenpollesch.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary font-medium hover:underline"
+                >
+                  kaidenpollesch.com
+                </a>{" "}
+                for updated information.
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Technologies */}
         <Card className="bg-card">
           <CardHeader>
             <CardTitle>Technologies Used for This Website</CardTitle>
